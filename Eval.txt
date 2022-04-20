@@ -55,7 +55,13 @@ FROM orders JOIN customers ON orders.CustomerID = customers.CustomerID
 WHERE ShipCountry LIKE "France"
 GROUP BY Shipname;
 
-Exercice 5 : 
+Exercice 5:
+
+SELECT ShipName,ShipCountry, SUM(products.UnitPrice)
+FROM orders JOIN 'order details' ON orders.OrderID='order details'.OrderID JOIN products ON 'order details'.ProductID=products.ProductID
+GROUP BY ShipName,ShipCountry;
+
+Exercice 6 : 
 SELECT ShipName,ShipCountry, SUM(products.UnitPrice)SELECT AVG(DATEDIFF(orders.ShippedDate,orders.OrderDate)) AS "Délai moyen de livraison en jours"
 FROM orders;
 
